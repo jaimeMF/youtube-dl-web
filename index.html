@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>youtube-dl web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+      	text-align: center;
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      
+      .form-signin {
+        max-width: 500px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius:10px;
+      }
+      
+      .powered-by-youtube-dl {
+      	font-size: 20px;
+      	margin-left: auto;
+      	margin-right:auto;
+      	max-width: 300px;
+      	border-radius:10px;
+      }
+      .progress {
+      	margin-left: auto;
+      	margin-right:auto;
+      	max-width: 300px;
+      }
+      
+      .alert {
+      	margin-left: auto;
+      	margin-right:auto;
+      	max-width: 400px;
+      }
+
+    </style>
+    
+    <script src="processURL.js"></script>
+    <script src="urlform.js"></script>
+    
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+<body>
+	<div class="container">
+	
+		<div class="page-header">
+		  <h1>youtube-dl web<small></small></h1>
+		</div>
+		
+		<form class="form-signin" name="URLform" id="URLform">
+		        <h2 class="form-signin-heading">Enter the URL</h2>
+		        <div class="input-prepend input-append">
+		        	<div class="btn-group">
+		                <button class="btn dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></button>
+		                <ul class="dropdown-menu">
+		                  <li><a href="javascript: setSteamURL(this.form)">Steam: Terraria</a></li>
+		                  <li><a href="javascript: setUstreamURL(this.form)">Ustream</a></li>
+		                </ul>
+		              </div>
+		        
+			        <input  class="span3" type="text" name="url" class="input-block-level" placeholder="Webpage URL"/>
+			        
+		        	<button class="btn  btn-primary" type="button" onClick="processURLform(this.form)">Get videos</button>
+		        </div>
+			</form>
+		
+		<div id="main-part">
+			<!-- Will be used when videos are processed -->
+		</div>
+		
+		<hr></hr>
+		<div class="powered-by-youtube-dl">
+			<p><a href="http://youtube-dl.org">Powered by youtube-dl</a></p>
+		</div>
+			
+		<div id="FOOTER">
+		<hr/>
+		<footer>
+			<p>&copy; Jaime Marquínez Ferrándiz</p> 
+			<p>Uses <a href="http://twitter.github.com/bootstrap">Bootstrap</a>.</p>
+		</footer>
+		</div>
+		
+	</div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+
+  </body>
+
+</html>
