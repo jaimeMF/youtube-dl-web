@@ -1,4 +1,4 @@
-var API_URL="http://macbookjaime.local:8081/api/"
+var API_URL="http://localhost:8081/api/"
 
 function htmlForVideo(video) {
 	var el=document.createElement('tr');
