@@ -2,7 +2,12 @@ var API_URL="http://youtube-dl.appspot.com/api/"
 
 function htmlForVideo(video) {
 	var el=document.createElement('tr');
-	el.innerHTML="<td>"+video.title+"</td><td>"+video.ext+"</td> ";
+	var imageHTML;
+	if (video.thumbnail) {
+		imageHTML='<img class="video-thumbnail" src="'+video.thumbnail+'"/>';
+	}
+	else {imageHTML='None';}
+	el.innerHTML="<td>"+imageHTML+"</td><td>"+video.title+"</td><td>"+video.ext+"</td> ";
 	var video_link_cell=document.createElement('td');
 	var video_link=document.createElement('a');
 	video_link.href=video.url;
@@ -16,7 +21,7 @@ function processVideosData(data) {
 	el.innerHTML ='Videos for: <a href="'+data.url+'">'+data.url+'</a>' ;
 	var table = document.createElement('table');
 	table.setAttribute('class','table');
-	table.innerHTML='<thead><tr><th>Video title</th><th>Format</th><th>Download link</th></tr></thead>'
+	table.innerHTML='<thead><tr><th>Thumbnail</th><th>Video title</th><th>Format</th><th>Download link</th></tr></thead>'
 	var table_body= document.createElement('tbody');
 	for (var i=0; i<data.videos.length; i++) {
 		var video=data.videos[i];
