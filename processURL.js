@@ -1,4 +1,4 @@
-var API_URL="http://localhost:8081/api/"
+var API_URL="http://youtube-dl.appspot.com/api/"
 
 function htmlForVideo(video) {
 	var el=document.createElement('tr');
