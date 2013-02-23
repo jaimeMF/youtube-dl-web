@@ -32,14 +32,12 @@ function processVideosData(data) {
 }
 
 function apiCallFailed() {
-	//alert('api call failed');
 	var el = document.getElementById('videos-section');
 	var url_form=document.getElementById('URLform');
 	el.innerHTML='<div class="alert alert-error">\
 				<button type="button" class="close" data-dismiss="alert">&times;</button>\
               <strong>Oops!</strong> Something went wrong. Make sure the website is supported by youtube-dl.\
             </div>';
-    url_form.style.display='block';
 }
 	
 function processVideosURL(video_url) {
@@ -54,20 +52,12 @@ function processVideosURL(video_url) {
 function processURLform(URLform) {
 	var url_value=URLform.url.value;
 	if (url_value!="") {
-		//alert(url_value);
-		//url_value="http://store.steampowered.com/video/105600/";
-		parent=URLform.parentNode
-		URLform.style.display='none'//css('display' , 'none'); //.hide()
-		//parent.removeChild(URLform);
-		parent=document.getElementById('main-part');
-		var el = document.createElement('p');
-		el.innerHTML='<p>Requesting info for the url: '+url_value+'</p>';
+		var vid_section=document.getElementById('videos-section');
+		vid_section.innerHTML='<p>Requesting info for the url: '+url_value+'</p>';
 		var progress = document.createElement('div');
 		progress.setAttribute('class','progress progress-striped active');
 		progress.innerHTML='<div class="bar" style="width: 100%;"></div>';
-		el.appendChild(progress);
-		el.id='videos-section';
-		parent.appendChild(el);
+		vid_section.appendChild(progress);
 		processVideosURL(url_value);
 		
 	}
