@@ -18,6 +18,10 @@
         padding-bottom: 40px;
       }
       
+      .no-centered {
+      	text-align: left;
+      }
+      
       .form-signin {
         max-width: 500px;
         padding: 19px 29px 29px;
@@ -74,6 +78,23 @@
 		<div class="page-header">
 		  <h1>youtube-dl web<small></small></h1>
 		</div>
+		
+		<div class="alert alert-block alert-warning no-centered">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<h4>Broken pages!</h4>
+			<div>
+				<p>
+					The support for some pages is broken:
+					<ul>
+						<li><b>Yotutube</b>: The urls don't work.</li>
+						<li><b>Vimeo</b></li>
+					<ul>
+				</p>
+			</div>
+			<p>
+				Only some of the sites supported by youtube-dl had been tested.
+			</p>
+        </div>
 		
 		<form class="form-signin" name="URLform" id="URLform">
 		        <h2 class="form-signin-heading">Enter the URL</h2>
