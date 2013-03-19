@@ -19,7 +19,7 @@ function htmlForVideo(video) {
 function processVideosData(data) {
 	var el = document.getElementById('videos-section');
 	if (data.error) {
-		reportError(data.error);
+		reportError('<code>'+data.error+'</code>');
 		return;
 	}
 	el.innerHTML ='Videos for: <a href="'+data.url+'">'+data.url+'</a>' ;
