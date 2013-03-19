@@ -18,6 +18,10 @@ function htmlForVideo(video) {
 }
 function processVideosData(data) {
 	var el = document.getElementById('videos-section');
+	if (data.error) {
+		reportError(data.error);
+		return;
+	}
 	el.innerHTML ='Videos for: <a href="'+data.url+'">'+data.url+'</a>' ;
 	var table = document.createElement('table');
 	table.setAttribute('class','table');
@@ -31,13 +35,17 @@ function processVideosData(data) {
 	el.appendChild(table);
 }
 
-function apiCallFailed() {
+function reportError(error_msg) {
 	var el = document.getElementById('videos-section');
-	var url_form=document.getElementById('URLform');
 	el.innerHTML='<div class="alert alert-error">\
-				<button type="button" class="close" data-dismiss="alert">&times;</button>\
-              <strong>Oops!</strong> Something went wrong. Make sure the website is supported by youtube-dl.\
-            </div>';
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>\
+				  <strong>Oops!</strong><br/>'+
+				  error_msg+
+				  '<br/>Make sure the website is supported by youtube-dl.</div>';
+}
+
+function apiCallFailed(jqXHR, textStatus, errorThrown) {
+		reportError('Something went wrong.');
 }
 	
 function processVideosURL(video_url) {
