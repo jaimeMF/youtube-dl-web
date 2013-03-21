@@ -9,12 +9,20 @@ function apiCallFailed(jqXHR, textStatus, errorThrown) {
 		viewer.display_error('Something went wrong.');
 }
 
+function use_localserver() {
+	var localserver = localStorage.localserver;
+	if (localserver == "true") return true;
+	else return false;
+}
 
 //We extend BaseVideoInfo
 function VideoInfo(url) {
 	var api;
-	//Uncomment for using a local server
-	//api = "http://localhost:9191/api/";
+	if (use_localserver()) {
+		api = "http://localhost:9191/api/";
+		console.log("Using "+api+" as API server");
+	}
+	else console.log("Using default API server");
 	BaseVideoInfo.call(this,url,api);
 }
 
@@ -26,6 +34,7 @@ VideoInfo.prototype = Object.create(BaseVideoInfo.prototype,
 
 
 function processVideosURL(video_url) {
+	viewer.display_loading(video_url);
 	var video_info = new VideoInfo(video_url);
 	video_info.get_info();
 }
@@ -33,7 +42,6 @@ function processVideosURL(video_url) {
 function processURLform(URLform) {
 	var url_value=URLform.url.value;
 	if (url_value!="") {
-		viewer.display_loading(url_value);
 		processVideosURL(url_value);
 	}
 	return false;	

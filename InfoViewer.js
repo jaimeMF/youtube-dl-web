@@ -13,8 +13,14 @@ InfoViewer.prototype = {
 		link.innerHTML = message || url;
 		return link;
 	},
+	html_video_link_on_click: function(url) {
+		//Return a function that will be called when the link is clicked.
+		return null;
+	},
 	html_video_link: function(url, message) {
-		return this.html_link(url,message);
+		var link =  this.html_link(url,message);
+		link.addEventListener("click",this.html_video_link_on_click(url), false)
+		return link;
 	},
 	video_html: function(video) {
 		var el=document.createElement('tr');
