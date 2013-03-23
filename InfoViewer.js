@@ -7,10 +7,23 @@ InfoViewer.prototype = {
 	video_section: function() {
 		return document.getElementById('videos-section');
 	},
-	html_link: function(url, message) {
+	html_href: function(url) {
+		return url
+	},
+	_html_link: function(url, message) {
+		//Html link with no on_click listener
 		var link=document.createElement('a');
-		link.href=url;
+		link.href=this.html_href(url) || "#";
 		link.innerHTML = message || url;
+		return link;
+	},
+	html_link_on_click: function(url) {
+		return null;
+	},
+	html_link: function(url,message) {
+		//Html link with an on_click listener
+		var link = this._html_link(url,message);
+		link.addEventListener("click",this.html_link_on_click(url), false);
 		return link;
 	},
 	html_video_link_on_click: function(url) {
@@ -18,8 +31,8 @@ InfoViewer.prototype = {
 		return null;
 	},
 	html_video_link: function(url, message) {
-		var link =  this.html_link(url,message);
-		link.addEventListener("click",this.html_video_link_on_click(url), false)
+		var link =  this._html_link(url,message);
+		link.addEventListener("click",this.html_video_link_on_click(url), false);
 		return link;
 	},
 	video_html: function(video) {
