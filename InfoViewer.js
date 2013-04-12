@@ -14,7 +14,7 @@ InfoViewer.prototype = {
 		//Html link with no on_click listener
 		var link=document.createElement('a');
 		link.href=this.html_href(url) || "#";
-		link.innerHTML = message || url;
+		link.textContent = message || url;
 		return link;
 	},
 	html_link_on_click: function(url) {
@@ -39,22 +39,52 @@ InfoViewer.prototype = {
 		var el=document.createElement('tr');
 		var imageHTML;
 		if (video.thumbnail) {
-			imageHTML='<img class="video-thumbnail" src="'+video.thumbnail+'"/>';
+			imageHTML=document.createElement('img');
+			imageHTML.src = video.thumbnail;
+			imageHTML.className = "video-thumbnail";
 		}
-		else {imageHTML='None';}
-		el.innerHTML="<td>"+imageHTML+"</td><td>"+video.title+"</td><td>"+video.ext+"</td> ";
-		var video_link_cell=document.createElement('td');
-		video_link_cell.appendChild(this.html_video_link(video.url,"Download video"));
-		el.appendChild(video_link_cell);
+		else {imageHTML=null;}
+		
+		var cell_image = document.createElement('td');
+		cell_image.appendChild(imageHTML);
+		var cell_title = document.createElement('td');
+		cell_title.textContent = video.title;
+		var cell_ext = document.createElement('td');
+		cell_ext.textContent = video.ext;
+		var cell_video_link=document.createElement('td');
+		cell_video_link.appendChild(this.html_video_link(video.url,"Download video"));
+		var cells=[cell_image,cell_title, cell_ext, cell_video_link];
+		for (var i=0; i< cells.length; i++)
+		{
+			el.appendChild(cells[i]);
+		}
 		return el;
 	},
 	display_error: function(error_msg) {
 		var el = this.video_section();
-		el.innerHTML='<div class="alert alert-error">\
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>\
-					  <strong>Oops!</strong><br/>'+
-					  error_msg+
-					  '<br/>Make sure the website is supported by youtube-dl.</div>';
+		var div = document.createElement('div');
+		div.className = 'alert alert-error';
+		
+		var close = document.createElement('button');
+		close.type='button';
+		close.className='close';
+		close.setAttribute('data-dismiss', 'alert');
+		close.textContent =  '×';
+		div.appendChild(close);
+		
+		var oops = document.createElement('strong');
+		oops.textContent = 'Oops!';
+		div.appendChild(oops);
+		
+		div.appendChild(error_msg);
+		
+		var msg = document.createElement('p');
+		
+		msg.textContent = 'Make sure the website is supported by youtube-dl.';
+		
+		div.appendChild(msg);
+
+		el.appendChild(div);
 	},
 	display_loading: function(url) {
 		this.clear()
@@ -73,10 +103,12 @@ InfoViewer.prototype = {
 		var data = this.data;
 		var el = this.video_section();
 		if (data.error) {
-			this.display_error('<code>'+data.error+'</code>');
+			var err_msg = document.createElement('code');
+			err_msg.textContent = data.error;
+			this.display_error(err_msg);
 			return;
 		}
-		el.innerHTML ='Videos for: ';//<a href="'+data.url+'">'+data.url+'</a>' ;
+		el.innerHTML ='Videos for: ';
 		el.appendChild(this.html_link(data.url));
 		var table = document.createElement('table');
 		table.setAttribute('class','table');
