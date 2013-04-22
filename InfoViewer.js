@@ -43,7 +43,10 @@ InfoViewer.prototype = {
 			imageHTML.src = video.thumbnail;
 			imageHTML.className = "video-thumbnail";
 		}
-		else {imageHTML=null;}
+		else {
+            imageHTML=document.createElement('p');
+            imageHTML.textContent = 'NA';
+        }
 		
 		var cell_image = document.createElement('td');
 		cell_image.appendChild(imageHTML);
