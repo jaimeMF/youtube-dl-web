@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.no-centered {
+    text-align: left;
+}
+
+.form-signin {
+    max-width: 500px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius:10px;
+}
+
+.powered-by-youtube-dl {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 300px;
+    border-radius:10px;
+}
+
+.progress {
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 300px;
+}
+
+.alert {
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 400px;
+}
+img.video-thumbnail {
+    width:300px;
+}
