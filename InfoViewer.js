@@ -79,8 +79,12 @@ InfoViewer.prototype = {
 		oops.textContent = 'Oops!';
 		div.appendChild(oops);
 		
-		div.appendChild(error_msg);
-		
+        if (typeof error_msg === "string") {
+            var error = document.createElement('p')
+            error.textContent = error_msg;
+            div.appendChild(error);
+        }
+        else div.appendChild(error_msg);
 		var msg = document.createElement('p');
 		
 		msg.textContent = 'Make sure the website is supported by youtube-dl.';
