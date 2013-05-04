@@ -10,7 +10,6 @@ function apiCallFailed(jqXHR, textStatus, errorThrown) {
 }
 
 function use_localserver() {
-	return true;
 	var localserver = localStorage.localserver;
 	if (localserver === "true") { return true; } else { return false; }
 }
