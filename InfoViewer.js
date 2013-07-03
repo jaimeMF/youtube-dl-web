@@ -1,4 +1,5 @@
 
+// Renders the video information contained in the data in the video-section html element
 function InfoViewer(data) {
 	this.data = data;
 }
@@ -35,6 +36,7 @@ InfoViewer.prototype = {
 		link.addEventListener("click", this.html_video_link_on_click(url), false);
 		return link;
 	},
+    // Return an html element for the video, it's actually a table row.
 	video_html: function (video) {
 		var i, imageHTML, el = document.createElement('tr'), cell_image = document.createElement('td'), cell_title = document.createElement('td'), cell_ext = document.createElement('td'), cell_video_link = document.createElement('td'), cells = [cell_image, cell_title, cell_ext, cell_video_link];
 		if (video.thumbnail) {
@@ -54,6 +56,9 @@ InfoViewer.prototype = {
 		}
 		return el;
 	},
+    /* Display an error message
+       error_msg can be a string or a html element
+     */
 	display_error: function (error_msg) {
 		var el = this.video_section(), div = document.createElement('div'), oops = document.createElement('strong'), close = document.createElement('button'), msg = document.createElement('p'), error;
 		div.className = 'alert alert-error';
@@ -79,6 +84,7 @@ InfoViewer.prototype = {
 
 		el.appendChild(div);
 	},
+    // Display a progress bar while the data is being load
 	display_loading: function (url) {
 		this.clear();
 		var vid_section = this.video_section(), message = document.createElement('p'), progress = document.createElement('div');
@@ -90,6 +96,7 @@ InfoViewer.prototype = {
 		progress.innerHTML = '<div class="bar" style="width: 100%;"></div>';
 		vid_section.appendChild(progress);
 	},
+    // Display the videos information
 	display: function () {
 		this.clear();
 		var data = this.data, el = this.video_section(), err_msg, table, table_body, i;
@@ -111,6 +118,7 @@ InfoViewer.prototype = {
 		table.appendChild(table_body);
 		el.appendChild(table);
 	},
+    // Clear the video-section
 	clear: function () {
 		this.video_section().innerHTML = '';
 	}

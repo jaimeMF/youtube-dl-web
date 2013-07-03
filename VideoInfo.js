@@ -1,4 +1,5 @@
 
+// Allows to get the video of the url through the api_url (optional)
 function BaseVideoInfo(url, api_url) {
 	this.url = url || 'null';
 	this.api_url = api_url || "http://youtube-dl.appspot.com/api/";
@@ -8,6 +9,7 @@ BaseVideoInfo.prototype = {
 	log: function () {
 		console.log("VideoInfo:\n\t=> URL: " + this.url + "\n\t=> API URL: " + this.api_url);
 	},
+    // Get the info of the url
 	get_info:  function () {
 		$.getJSON(
             this.api_url,
@@ -15,6 +17,7 @@ BaseVideoInfo.prototype = {
             this.process_video_info
         ).error(this.api_call_failed);
 	},
+    // This function will be called when the video data is received
 	process_video_info: function (data) {
 		console.error("Nothing to be done with the data");
 	},
