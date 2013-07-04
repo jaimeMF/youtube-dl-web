@@ -36,6 +36,26 @@ InfoViewer.prototype = {
 		link.addEventListener("click", this.html_video_link_on_click(url), false);
 		return link;
 	},
+    html_rtmp_command: function (video) {
+        var url = video.url,
+            play_path = video.play_path;
+        var command_el = document.createElement('code'),
+            command_message = document.createElement('p')
+            command = 'rtmpdump -o video.' + video.ext + ' -r "' + url + '"';
+        if (play_path) command += ' -y "' + play_path + '"';
+        command_el.textContent = command
+        command_el.className = 'command'
+        command_message.textContent = 'Run this command in the commnad line:'
+        command_message.appendChild(command_el)
+        return command_message
+    },
+    html_download_element_for_video: function (video) {
+        var url = video.url;
+        var protocol = url.substring(0,4)
+        if (protocol === 'http') return this.html_video_link(url, 'Download video');
+        else if (protocol === 'rtmp') return this.html_rtmp_command(video);
+        else console.error('Protocol not supported');
+    },
     // Return an html element for the video, it's actually a table row.
 	video_html: function (video) {
 		var i, imageHTML, el = document.createElement('tr'), cell_image = document.createElement('td'), cell_title = document.createElement('td'), cell_ext = document.createElement('td'), cell_video_link = document.createElement('td'), cells = [cell_image, cell_title, cell_ext, cell_video_link];
@@ -50,7 +70,7 @@ InfoViewer.prototype = {
 		cell_image.appendChild(imageHTML);
 		cell_title.textContent = video.title;
 		cell_ext.textContent = video.ext;
-		cell_video_link.appendChild(this.html_video_link(video.url, "Download video"));
+		cell_video_link.appendChild(this.html_download_element_for_video(video));
 		for (i = 0; i < cells.length; i++) {
 			el.appendChild(cells[i]);
 		}

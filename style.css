@@ -39,3 +39,9 @@ body {
 img.video-thumbnail {
     width:300px;
 }
+
+code.command {
+    white-space: pre-wrap;
+    border-style: none;
+    color:black;
+}
