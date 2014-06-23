@@ -2,7 +2,8 @@
 // Allows to get the video of the url through the api_url (optional)
 function BaseVideoInfo(url, api_url) {
 	this.url = url || 'null';
-	this.api_url = api_url || "https://youtube-dl.appspot.com/api/info";
+	api_url = api_url || "https://youtube-dl.appspot.com";
+	this.api_url = api_url + "/api/info";
 }
 
 BaseVideoInfo.prototype = {

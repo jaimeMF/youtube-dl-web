@@ -18,7 +18,7 @@ function use_localserver() {
 function VideoInfo(url) {
 	var api;
 	if (use_localserver()) {
-		api = "http://localhost:9191/api/";
+		api = "http://localhost:9191";
 		console.log("Using " + api + " as API server");
 	} else { console.log("Using default API server"); }
 	BaseVideoInfo.call(this, url, api);
