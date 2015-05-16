@@ -14,7 +14,7 @@ BaseVideoInfo.prototype = {
     get_info:  function () {
         $.getJSON(
             this.api_url,
-            {'url': this.url},
+            {'url': this.url, flatten: false},
             this.process_video_info
         ).error(this.api_call_failed);
     },

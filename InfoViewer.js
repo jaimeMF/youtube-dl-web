@@ -132,8 +132,15 @@ InfoViewer.prototype = {
         table.setAttribute('class', 'table');
         table.innerHTML = '<thead><tr><th>Thumbnail</th><th>Video title</th><th>Format</th><th>Download link</th></tr></thead>';
         table_body = document.createElement('tbody');
-        for (i = 0; i < data.videos.length; i++) {
-            table_body.appendChild(this.video_html(data.videos[i]));
+        info = data.info
+        result_type = info._type || 'video'
+        if (result_type === 'video') {
+            var videos = [info]
+        } else {
+            var videos = info.entries
+        }
+        for (i = 0; i < videos.length; i++) {
+            table_body.appendChild(this.video_html(videos[i]));
         }
         table.appendChild(table_body);
         el.appendChild(table);
