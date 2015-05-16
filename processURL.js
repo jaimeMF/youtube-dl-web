@@ -1,8 +1,8 @@
 var viewer = new InfoViewer();
 
 function processVideosData(data) {
-	viewer.data = data;
-	viewer.display();
+    viewer.data = data;
+    viewer.display();
 }
 
 function apiCallFailed(jqXHR, textStatus, errorThrown) {
@@ -10,37 +10,38 @@ function apiCallFailed(jqXHR, textStatus, errorThrown) {
 }
 
 function use_localserver() {
-	var localserver = localStorage.localserver;
-	if (localserver === "true") { return true; } else { return false; }
+    // return true;
+    var localserver = localStorage.localserver;
+    if (localserver === "true") { return true; } else { return false; }
 }
 
 //We extend BaseVideoInfo
 function VideoInfo(url) {
-	var api;
-	if (use_localserver()) {
-		api = "http://localhost:9191";
-		console.log("Using " + api + " as API server");
-	} else { console.log("Using default API server"); }
-	BaseVideoInfo.call(this, url, api);
+    var api;
+    if (use_localserver()) {
+        api = "http://localhost:9191";
+        console.log("Using " + api + " as API server");
+    } else { console.log("Using default API server"); }
+    BaseVideoInfo.call(this, url, api);
 }
 
 VideoInfo.prototype = Object.create(BaseVideoInfo.prototype,
-	{
-		process_video_info: {value: processVideosData},
-		api_call_failed: {value: apiCallFailed}
-	});
+    {
+        process_video_info: {value: processVideosData},
+        api_call_failed: {value: apiCallFailed}
+    });
 
 
 function processVideosURL(video_url) {
-	viewer.display_loading(video_url);
-	var video_info = new VideoInfo(video_url);
-	video_info.get_info();
+    viewer.display_loading(video_url);
+    var video_info = new VideoInfo(video_url);
+    video_info.get_info();
 }
 
 function processURLform(URLform) {
-	var url_value = URLform.url.value;
-	if (url_value !== "") {
-		processVideosURL(url_value);
-	}
-	return false;
+    var url_value = URLform.url.value;
+    if (url_value !== "") {
+        processVideosURL(url_value);
+    }
+    return false;
 }
