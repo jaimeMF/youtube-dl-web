@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
-    
+
     <script src="VideoInfo.js"></script>
     <script src="InfoViewer.js"></script>
     <script src="processURL.js"></script>
@@ -19,72 +19,72 @@
 </head>
 
 <body>
-	<!--Fork me ribbon-->
-	<a href="https://github.com/jaimeMF/youtube-dl-web">
-		<img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
-	</a>
-	
-	<div class="container">
-	
-		<div class="page-header">
-		  <h1>youtube-dl web<small></small></h1>
-		</div>
-		
-		<div class="alert alert-block alert-warning no-centered">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<h4>Broken pages!</h4>
-			<div>
-				<p>
-					The support for some pages is broken:
-					<ul>
-						<li><b>Dailymotion</b></li>
-					<ul>
-				</p>
-			</div>
-			<p>
-				Only some of the sites supported by youtube-dl have been tested.
-			</p>
+    <!--Fork me ribbon-->
+    <a href="https://github.com/jaimeMF/youtube-dl-web">
+        <img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+    </a>
+
+    <div class="container">
+
+        <div class="page-header">
+          <h1>youtube-dl web<small></small></h1>
         </div>
-		
-		<form class="form-inline" name="URLform" id="URLform">
-		        <h2 class="form-signin-heading">Enter the URL</h2>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                    <li><a href="javascript: setURL(this.form,'https://www.youtube.com/watch?v=36lSzUMBJnc')">Youtube</a></li>
-                            <li><a href="javascript: setURL(this.form,'http://vimeo.com/21604065')">Vimeo</a></li>
-                            <li><a href="javascript: setURL(this.form,'http://www.ted.com/talks/dan_dennett_on_our_consciousness.html')">TED Talks</a></li>
-                        </ul>
-                    </span>
-                    <input  class="span3 form-control" type="text" name="url" placeholder="Webpage URL"/>
-                    <span class="input-group-btn">
-                        <button class="btn  btn-primary" type="button" onClick="processURLform(this.form)">Get videos</button>
-                    </span>
-                </div>
-			</form>
-		
-		<div id="main-part">
-			
-			<div id="videos-section">
-				<!-- Will be used when videos are processed -->
-			</div>
-		</div>
-		
-		<hr></hr>
-		<div class="powered-by-youtube-dl">
-			<p><a href="https://yt-dl.org/">Powered by youtube-dl</a></p>
-		</div>
-			
-		<div id="FOOTER">
-		<hr/>
-		<footer>
-			<p>&copy; <a href="https://github.com/jaimeMF" alt="jaimeMF GitHub profile">Jaime Marquínez Ferrándiz</a></p>
-			<p>Uses <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
-		</footer>
-		</div>
-		
-	</div> <!-- /container -->
+
+        <div class="alert alert-block alert-warning no-centered">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Broken pages!</h4>
+            <div>
+                <p>
+                    The support for some pages is broken:
+                    <ul>
+                        <li><b>Dailymotion</b></li>
+                    <ul>
+                </p>
+            </div>
+            <p>
+                Only some of the sites supported by youtube-dl have been tested.
+            </p>
+        </div>
+
+        <form class="form-inline" name="URLform" id="URLform">
+            <h2 class="form-signin-heading">Enter the URL</h2>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                <li><a href="javascript: setURL(this.form,'https://www.youtube.com/watch?v=36lSzUMBJnc')">Youtube</a></li>
+                        <li><a href="javascript: setURL(this.form,'http://vimeo.com/21604065')">Vimeo</a></li>
+                        <li><a href="javascript: setURL(this.form,'http://www.ted.com/talks/dan_dennett_on_our_consciousness.html')">TED Talks</a></li>
+                    </ul>
+                </span>
+                <input  class="span3 form-control" type="text" name="url" placeholder="Webpage URL"/>
+                <span class="input-group-btn">
+                    <button class="btn  btn-primary" type="button" onClick="processURLform(this.form)">Get videos</button>
+                </span>
+            </div>
+        </form>
+
+        <div id="main-part">
+
+            <div id="videos-section">
+                <!-- Will be used when videos are processed -->
+            </div>
+        </div>
+
+        <hr></hr>
+        <div class="powered-by-youtube-dl">
+            <p><a href="https://yt-dl.org/">Powered by youtube-dl</a></p>
+        </div>
+
+        <div id="FOOTER">
+        <hr/>
+        <footer>
+            <p>&copy; <a href="https://github.com/jaimeMF" alt="jaimeMF GitHub profile">Jaime Marquínez Ferrándiz</a></p>
+            <p>Uses <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
+        </footer>
+        </div>
+
+    </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
