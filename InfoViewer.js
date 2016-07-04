@@ -112,8 +112,8 @@ InfoViewer.prototype = {
         message.appendChild(this.html_link(url));
         vid_section.appendChild(message);
         progress.id = "progressbar";
-        progress.setAttribute('class', 'progress progress-striped active');
-        progress.innerHTML = '<div class="bar" style="width: 100%;"></div>';
+        progress.setAttribute('class', 'progress');
+        progress.innerHTML = '<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>';
         vid_section.appendChild(progress);
     },
     // Display the videos information

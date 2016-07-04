@@ -8,8 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!--Le styles-->
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
     
     <script src="VideoInfo.js"></script>
@@ -47,22 +46,22 @@
 			</p>
         </div>
 		
-		<form class="form-signin" name="URLform" id="URLform">
+		<form class="form-inline" name="URLform" id="URLform">
 		        <h2 class="form-signin-heading">Enter the URL</h2>
-		        <div class="input-prepend input-append">
-		        	<div class="btn-group">
-		                <button class="btn dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></button>
-		                <ul class="dropdown-menu">
-					<li><a href="javascript: setURL(this.form,'https://www.youtube.com/watch?v=36lSzUMBJnc')">Youtube</a></li>
-		                	<li><a href="javascript: setURL(this.form,'http://vimeo.com/21604065')">Vimeo</a></li>
-		                	<li><a href="javascript: setURL(this.form,'http://www.ted.com/talks/dan_dennett_on_our_consciousness.html')">TED Talks</a></li>
-		                </ul>
-		              </div>
-		        
-			        <input  class="span3" type="text" name="url" class="input-block-level" placeholder="Webpage URL"/>
-			        
-		        	<button class="btn  btn-primary" type="button" onClick="processURLform(this.form)">Get videos</button>
-		        </div>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                    <li><a href="javascript: setURL(this.form,'https://www.youtube.com/watch?v=36lSzUMBJnc')">Youtube</a></li>
+                            <li><a href="javascript: setURL(this.form,'http://vimeo.com/21604065')">Vimeo</a></li>
+                            <li><a href="javascript: setURL(this.form,'http://www.ted.com/talks/dan_dennett_on_our_consciousness.html')">TED Talks</a></li>
+                        </ul>
+                    </span>
+                    <input  class="span3 form-control" type="text" name="url" placeholder="Webpage URL"/>
+                    <span class="input-group-btn">
+                        <button class="btn  btn-primary" type="button" onClick="processURLform(this.form)">Get videos</button>
+                    </span>
+                </div>
 			</form>
 		
 		<div id="main-part">
@@ -81,7 +80,7 @@
 		<hr/>
 		<footer>
 			<p>&copy; <a href="https://github.com/jaimeMF" alt="jaimeMF GitHub profile">Jaime Marquínez Ferrándiz</a></p>
-			<p>Uses <a href="http://twitter.github.com/bootstrap">Bootstrap</a>.</p>
+			<p>Uses <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
 		</footer>
 		</div>
 		
@@ -90,8 +89,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   </body>
 

@@ -8,7 +8,7 @@ body {
     text-align: left;
 }
 
-.form-signin {
+.form-inline {
     max-width: 500px;
     padding: 19px 29px 29px;
     margin: 0 auto 20px;
@@ -44,4 +44,8 @@ code.command {
     white-space: pre-wrap;
     border-style: none;
     color:black;
+}
+
+.table {
+    text-align: left;
 }
