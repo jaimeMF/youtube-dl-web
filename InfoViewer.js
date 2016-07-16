@@ -15,6 +15,7 @@ InfoViewer.prototype = {
         //Html link with no on_click listener
         var link = document.createElement('a');
         link.href = this.html_href(url) || "#";
+        link.download = "";
         link.textContent = message || url;
         return link;
     },
