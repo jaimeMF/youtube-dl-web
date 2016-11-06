@@ -81,7 +81,7 @@ InfoViewer.prototype = {
      */
     display_error: function (error_msg) {
         var el = this.video_section(), div = document.createElement('div'), oops = document.createElement('strong'), close = document.createElement('button'), msg = document.createElement('p'), error;
-        div.className = 'alert alert-error';
+        div.className = 'alert alert-danger';
 
         close.type = 'button';
         close.className = 'close';
